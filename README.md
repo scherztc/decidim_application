@@ -28,7 +28,6 @@ Note: If you run into bundler problems with pg, run the following:
 1. bin/rails decidim_system:create_admin
 1. Start the app with `bin/dev`
 1. Visit `http://localhost:3000/system` and log in with your system admin credentials
-
 1. Create a new organization. Check the locales you want to use for that organization, and select a default locale.
 1. Set the correct default host for the organization, otherwise the app will not work properly. Note that you need to include any subdomain you might be using.
 1. Fill the rest of the form and submit it.
@@ -63,6 +62,7 @@ Here are some of the problem areas for using decidim in your Mac environment.
 1.  Our Macbooks do not like something about running multithreaded Spring commands
     1. DISABLE_SPRING=1 bin/rails db:create
     1. DISABLE_SPRING=1 bin/rails db:migrate
+    1. DISABLE_SPRING=1 bin/rails assets:precompile
     1. DISABLE_SPRING=1 bin/rails db:seed
 
 ## Links
