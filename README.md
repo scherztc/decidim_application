@@ -18,6 +18,7 @@ Note: If you run into bundler problems with pg, run the following:
 1. brew install libpq postgresql 
 1. brew services restart postgresql@14
 1. createuser -s postgres
+1. bundle install
 1. nvm use 22.1.0 (must be > 18.x)
 1. yarn install
 1. DISABLE_SPRING=1 bin/rails assets:precompile
