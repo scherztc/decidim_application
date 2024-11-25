@@ -8,12 +8,27 @@ This is the open-source repository for decidim_application, based on [Decidim](h
 
 You will need to do some steps before having the app working properly once you have deployed it:
 
+Note: If you run into bundler problems with openssl, reinstall ruby with
+* rbenv: CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-opt-dir=$(brew --prefix openssl@1.1)" rbenv install 3.2.2 && rbenv rehash
+* rvm: rvm reinstall 3.2.2 --with-openssl-dir=`brew --prefix openssl@1.1` --with-opt-dir=`brew --prefix openssl@1.1`
 
+Note: If you run into bundler problems with pg, run the following:
+* bundle config build.pg --with-pg-config=/usr/local/Cellar/libpq/17.1/bin/pg_config
+
+1. brew install libpq postgresql 
+1. brew services restart postgresql@14
+1. createuser -s postgres
+1. bundle install
+1. nvm use 22.1.0 (must be > 18.x)
+1. yarn install
+1. DISABLE_SPRING=1 bin/rails assets:precompile
+1. DISABLE_SPRING=1 bin/rails db:create
+1. DISABLE_SPRING=1 bin/rails db:migrate
+1. DISABLE_SPRING=1 bin/rails db:seed
 1. Create a System Admin user: `bin/rails decidim_system:create_admin`
-1. Start the application with bin/dev
+1. bin/rails decidim_system:create_admin
+1. Start the app with `bin/dev`
 1. Visit `http://localhost:3000/system` and log in with your system admin credentials
-
-
 1. Create a new organization. Check the locales you want to use for that organization, and select a default locale.
 1. Set the correct default host for the organization, otherwise the app will not work properly. Note that you need to include any subdomain you might be using.
 1. Fill the rest of the form and submit it.
