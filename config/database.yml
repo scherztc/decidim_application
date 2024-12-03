@@ -86,4 +86,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: decidim_application_development

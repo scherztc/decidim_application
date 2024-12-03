@@ -3,6 +3,8 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.hosts << ENV['SITE_DOMAIN_NAME'] 
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -85,7 +87,7 @@ Rails.application.configure do
     :password       => Rails.application.secrets.smtp_password,
     :domain         => Rails.application.secrets.smtp_domain,
     :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
-    :openssl_verify_mode => 'none'
+    :ca_file        => ENV['SMTP_CERTIFICATE'] 
   }
 
   # Use a different logger for distributed setups.

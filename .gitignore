@@ -35,6 +35,9 @@
 /config/master.key
 
 # Ignore env configuration files
+.env.production.local
+.env.test.local
+.env.development.local
 .env
 .envrc
 .rbenv-vars
@@ -44,6 +47,10 @@
 /public/packs-test
 /public/sw.js
 /public/sw.js.map
+/public/sw.js.br
+/public/sw.js.gz
+/public/sw.js.map.br
+/public/sw.js.map.gz
 
 # Ignore node modules
 /node_modules
@@ -51,3 +58,5 @@
 
 # Ignore Tailwind configuration
 tailwind.config.js
+
+/vendor/bundle
