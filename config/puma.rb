@@ -24,6 +24,9 @@ if ENV.fetch('RAILS_ENV') == 'production'
   stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
 else
   port ENV.fetch('PORT', 3000)
+  
+  # Bind Puma to HTTP on all IPs and port 3000 (standard HTTP binding).
+  bind "tcp://0.0.0.0:3000"
 end
 
 # Set master PID and state locations
@@ -48,6 +51,4 @@ state_path "#{app_dir}/tmp/puma/state"
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
-# Bind Puma to HTTP on all IPs and port 3000 (standard HTTP binding).
-## bind "tcp://0.0.0.0:3000"
 
