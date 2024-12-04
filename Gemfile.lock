@@ -322,6 +322,10 @@ GEM
     doorkeeper (5.6.8)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
+    dotenv (3.1.0)
+    dotenv-rails (3.1.0)
+      dotenv (= 3.1.0)
+      railties (>= 6.1)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -762,6 +766,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim (= 0.29.0)
   decidim-dev (= 0.29.0)
+  dotenv-rails
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
   net-imap (~> 0.2.3)
@@ -772,7 +777,7 @@ DEPENDENCIES
   wicked_pdf (~> 2.1)
 
 RUBY VERSION
-   ruby 3.2.6p234
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.19

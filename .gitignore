@@ -48,6 +48,5 @@
 # Ignore node modules
 /node_modules
 
-
 # Ignore Tailwind configuration
 tailwind.config.js
