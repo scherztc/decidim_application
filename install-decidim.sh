@@ -31,7 +31,6 @@ echo -e "***********************************************************************
 # Config vars & default values (use -h to view options)
 ########################################################
 
-RUBY_VERSION="2.7.4"
 DECIDIM_VERSION="0.26"
 BUNDLER_VERSION="2.2.18"
 RAILS_VERSION="6.0.4"
@@ -40,6 +39,21 @@ CONFIRM=1
 STEPS=("check" "prepare" "rbenv" "gems" "decidim" "postgres" "create" "servers")
 # default environment to be configured
 ENVIRONMENT="production"
+
+# Dynamically set RUBY_VERSION from .ruby-version
+if [ ! -f .ruby-version ]; then
+  echo "Error: .ruby-version file not found!"
+  exit 1
+fi
+
+RUBY_VERSION=$(<.ruby-version)
+
+if [[ ! "$RUBY_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "Error: Invalid Ruby version in .ruby-version"
+  exit 1
+fi
+
+echo "Using Ruby version: $RUBY_VERSION"
 
 ###################
 # Function library
